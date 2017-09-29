@@ -49,7 +49,7 @@
         // code to display array data
         function showTables() {
             console.log("showing reservations");
-            $("#reslist").html("<h2>Current Reservations");
+            $("#reslist").html("<h2>Current Reservations</h2>");
             $.get("/show/tables", function (data) {
                 for (var i = 0; i < data.length; i++) {
                     $("#reslist").append("<h2>" +data[i].name+"</h2><hr>");
@@ -59,10 +59,10 @@
 
         function showWaitList() {
             console.log("showing waitlist");
-            $("#waitlist").html("<h2>Wait List");
+            $("#waitlist").html("<h2>Wait List</h2>");
             $.get("/show/waitlist", function (data2) {
-                for (var i = 0; i < data2.length; i++) {
-                    $("#waitlist").append("<h2>" +data2[i].name+"</h2><hr>");
+                for (var j = 0; j < data2.length; j++) {
+                    $("#waitlist").append("<h2>" +data2[j].name+"</h2><hr>");
                  }
             });
         }
