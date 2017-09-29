@@ -13,14 +13,22 @@ var PORT = 3000;
 // Array to pull in API's
 
 var tables = [
-   
-
+  {
+    name: "Jose",
+    email: "test@google.com",
+    phone: "333-333-3333",
+    uid: 2
+  }
   ];
 
 
 var waitlist = [
-  
-
+  {
+    name: "Billy",
+    email: "test2@google.com",
+    phone: "444-444-4443",
+    uid: 5
+  }
   ];
 
   // Endpoints
