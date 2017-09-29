@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <style>
+    #mainbox{
+        width: 85%;
+    }
+    .form-group {
+    margin-bottom: 15px;
+    text-align: initial;
+     }
+     label{
+         font-weight: bold;
+     }
+     #add-btn{
+         width: 100%;
+     }
+    </style>
+    </head>
+    <body>
+        <div class="container text-center">
+        <div class="jumbotron">
+            <h1 class="display-3">Hot Restaurant</h1>
+            <p class="lead">We only have 5 tables! Book your seat before they all are gone!</p>
+            <hr class="my-4">
+            <p class="lead">
+                <button type="button" class="btn btn-primary">View Tables</button><button type="button" class="btn btn-danger">Make Reservation</button>
+            </p>
+          </div>
+
+          <div class="row">
+            
+                  <div class="col-lg-12">
+            
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <h3 class="panel-title"><strong>Table Reservation</strong></h3>
+                      </div>
+                      <div class="panel-body">
+                        <form role="form">
+            
+                          <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name">
+                          </div>
+            
+                          <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="text" class="form-control" id="phone">
+                          </div>
+            
+                          <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="email">
+                          </div>
+            
+                          <div class="form-group">
+                            <label for="uid">Unique ID</label>
+                            <input type="text" class="form-control" id="uid">
+                          </div>
+            
+                        </form>
+                        <br>
+                        <div class="text-right">
+                          <button type="submit" class="btn btn-primary btn-md" id="add-btn"><span class="glyphicon glyphicon-fire"></span>Submit</button>
+                        </div>
+                      </div>
+                    </div>
+            
+                  </div>
+                </div>
+
+          <a href="">API Table Link</a> | <a href="">API Wait List</a>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+
+        <script type="text/javascript">
+            // Question: What does this code do?
+            $("#add-btn").on("click", function(event) {
+              event.preventDefault();
+        
+              var newReserv = {
+                name: $("#name").val().trim(),
+                phone: $("#phone").val().trim(),
+                email: $("#email").val().trim(),
+                udi: $("#udi").val().trim()
+              };
+        
+              // Question: What does this code do??
+              $.post("/api/new", newReserv)
+              .done(function(data) {
+                console.log(data);
+                alert("Adding a Reservation...");
+              });
+        
+            });
+        </script>
+
+        
+    </body>
+</html>
