@@ -51,7 +51,7 @@
         // code to display array data
         function showTables() {
             $("#reslist").empty();
-            $.get("/api/tables", function (data) {
+            $.get("/show/tables", function (data) {
                 for (var i = 0; i < data.length; i++) {
                     var tableSection = $("<div>");
                     tableSection.addClass("tables");
@@ -67,7 +67,7 @@
 
         function showWaitList() {
             $("#waitlist").empty();
-            $.get("/api/waitlist", function (data2) {
+            $.get("/show/waitlist", function (data2) {
                 for (var i = 0; i < data2.length; i++) {
                     var waitSection = $("<div>");
                     waitSection.addClass("wait");

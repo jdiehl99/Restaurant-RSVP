@@ -18,7 +18,7 @@ var tables = [
   ];
 
 
-var reservations = [
+var waitlist = [
   
 
   ];
@@ -75,6 +75,24 @@ app.get("/api/waitlist", function(req, res) {
     table.push(newtable);
   
     res.json(newtable);
+  });
+
+
+  app.get("/show/:whicharr?", function(req, res) {
+    var chosen = req.params.whicharr;
+  
+    if (chosen) {
+      console.log(chosen);
+  
+      for (var i = 0; i < whicharr.length; i++) {
+        if (chosen === whicharr[i].routeName) {
+          return res.json(whicharr[i]);
+        }
+      }
+  
+      return res.json(false);
+    }
+    return res.json(whicharr);
   });
 
 
