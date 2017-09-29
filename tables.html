@@ -51,8 +51,9 @@
             console.log("showing reservations");
             $("#reslist").html("<h2>Current Reservations</h2>");
             $.get("/show/tables", function (data) {
+                console.log(data[0].name);
                 for (var i = 0; i < data.length; i++) {
-                    $("#reslist").append("<h2>" +data[i].name+"</h2><hr>");
+                    $("#reslist").append("<p>"+data[i].name+"</p><hr>");
                 }
             });
         }
@@ -61,8 +62,9 @@
             console.log("showing waitlist");
             $("#waitlist").html("<h2>Wait List</h2>");
             $.get("/show/waitlist", function (data2) {
+                console.log(data2);
                 for (var j = 0; j < data2.length; j++) {
-                    $("#waitlist").append("<h2>" +data2[j].name+"</h2><hr>");
+                    $("#waitlist").append("<p>"+data2[j].name+"</p><hr>");
                  }
             });
         }
