@@ -51,7 +51,7 @@
         // code to display array data
         function showTables() {
             console.log("showing reservations");
-            $("#reslist").empty();
+            $("#reslist").html("<h2>Current Reservations");
             $.get("/show/tables", function (data) {
                 for (var i = 0; i < data.length; i++) {
                     $("#reslist").append("<h2>" +data.name+"</h2><hr>");
@@ -61,7 +61,7 @@
 
         function showWaitList() {
             console.log("showing waitlist");
-            $("#waitlist").empty();
+            $("#waitlist").html("<h2>Wait List");
             $.get("/show/waitlist", function (data2) {
                 for (var i = 0; i < data2.length; i++) {
                     $("#waitlist").append("<h2>" +data2.name+"</h2><hr>");
