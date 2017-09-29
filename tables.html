@@ -35,13 +35,11 @@
         </div>
         <div id="reservations">
             <!-- current reservations -->
-            <div class="row">Current Reservations</div>
             <div id="reslist"></div>
 
         </div>
         <div id="waitlist">
             <!-- waitlist -->
-            <div class="row">Wait List</div>
             <div id="waitlist"></div>
 
         </div>
@@ -54,7 +52,7 @@
             $("#reslist").html("<h2>Current Reservations");
             $.get("/show/tables", function (data) {
                 for (var i = 0; i < data.length; i++) {
-                    $("#reslist").append("<h2>" +data.name+"</h2><hr>");
+                    $("#reslist").append("<h2>" +data[i].name+"</h2><hr>");
                 }
             });
         }
@@ -64,7 +62,7 @@
             $("#waitlist").html("<h2>Wait List");
             $.get("/show/waitlist", function (data2) {
                 for (var i = 0; i < data2.length; i++) {
-                    $("#waitlist").append("<h2>" +data2.name+"</h2><hr>");
+                    $("#waitlist").append("<h2>" +data2[i].name+"</h2><hr>");
                  }
             });
         }
