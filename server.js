@@ -4,10 +4,12 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
 
-// Sets up the Express App
-// =============================================================
 var app = express();
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
+
+// Sets up the Express app to handle data parsing
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 
 // Array to pull in API's
@@ -88,20 +90,12 @@ app.get("/api/waitlist", function(req, res) {
 
   app.get("/show/tables", function(req, res) {
       console.log("showing reservations");
-
-      for (var i = 0; i < tables.length; i++) {
-          return res.json(tables[i]);
-      }
-    return res.json(tables);
+    res.json(tables);
   });
 
   app.get("/show/waitlist", function(req, res) {
     console.log("showing waitlist");
-
-    for (var i = 0; i < waitlist.length; i++) {
-        return res.json(waitlist[i]);
-    }
-  return res.json(waitlist);
+ res.json(waitlist);
 });
 
 
