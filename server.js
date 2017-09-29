@@ -78,22 +78,23 @@ app.get("/api/waitlist", function(req, res) {
   });
 
 
-  app.get("/show/:whicharr?", function(req, res) {
-    var chosen = req.params.whicharr;
-  
-    if (chosen) {
-      console.log(chosen);
-  
-      for (var i = 0; i < whicharr.length; i++) {
-        if (chosen === whicharr[i].routeName) {
-          return res.json(whicharr[i]);
-        }
+  app.get("/show/tables", function(req, res) {
+      console.log("showing reservations");
+
+      for (var i = 0; i < tables.length; i++) {
+          return res.json(tables[i]);
       }
-  
-      return res.json(false);
-    }
-    return res.json(whicharr);
+    return res.json(tables);
   });
+
+  app.get("/show/waitlist", function(req, res) {
+    console.log("showing waitlist");
+
+    for (var i = 0; i < waitlist.length; i++) {
+        return res.json(waitlist[i]);
+    }
+  return res.json(waitlist);
+});
 
 
   // Starts the server to begin listening
