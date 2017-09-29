@@ -53,13 +53,13 @@ var reservations = [
   
   // Search for Specific Character (or all characters) - provides JSON
 
-  app.get("/api/:tables", function(req, res) {
+  app.get("/api/tables", function(req, res) {
     var chosen = req.params.tables;
   
     return res.json(tables);
   });
 
-app.get("/api/:waitlist", function(req, res) {
+app.get("/api/waitlist", function(req, res) {
     var chosen = req.params.waitlist;
   
     return res.json(waitlist);
