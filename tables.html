@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
         crossorigin="anonymous">
+        <script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
   <style>
         #mainbox {
             width: 85%;
@@ -46,6 +50,7 @@
     <script type="text/javascript">
         // code to display array data
         function showTables() {
+            console.log("showing reservations");
             $("#reslist").empty();
             $("#reslist").html("test reslist");
             $.get("/show/tables", function (data) {
@@ -63,6 +68,7 @@
         }
 
         function showWaitList() {
+            console.log("showing waitlist");
             $("#waitlist").empty();
             $("#waitlist").html("test waitlist");
             $.get("/show/waitlist", function (data2) {
@@ -77,6 +83,8 @@
                 }
             });
         }
+        showTables();
+        showWaitList();
     </script>           
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
