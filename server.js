@@ -1,4 +1,4 @@
-/ Dependencies
+// Dependencies
 // =============================================================
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -57,13 +57,12 @@ var reservations = [
     var chosen = req.params.tables;
   
     return res.json(tables);
-);
+  });
 
 app.get("/api/:waitlist", function(req, res) {
     var chosen = req.params.waitlist;
   
     return res.json(waitlist);
-);
   });
 
   app.post("/api/new", function(req, res) {
